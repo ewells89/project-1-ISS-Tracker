@@ -2,19 +2,19 @@ $(document).ready(function () {
     // console.log("Hello");
 
     // Function to get the current location of the ISS by lattitude/longitude.
-    function getISSLocation(){
-        var mymap = L.map('mapid').setView([0,0], 2);
-        
-        function moveISS () {
-            $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+    function getISSLocation() {
+        var mymap = L.map('mapid').setView([0, 0], 2);
+
+        function moveISS() {
+            $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function (data) {
                 var lat = data['iss_position']['latitude'];
                 var lon = data['iss_position']['longitude'];
 
                 iss.setLatLng([lat, lon]);
                 isscirc.setLatLng([lat, lon]);
-                mymap.panTo([lat, lon], animate=true);
+                mymap.panTo([lat, lon], animate = true);
             });
-            setTimeout(moveISS, 5000); 
+            setTimeout(moveISS, 5000);
         }
 
         // Leaflet map 
@@ -39,23 +39,23 @@ $(document).ready(function () {
         });
 
 
-        var iss = L.marker([0, 0], {icon: ISSIcon}).addTo(mymap);
-        var isscirc = L.circle([0,0], 800e3, {color: "#c22", opacity: 0.3, weight:1, fillColor: "#c22", fillOpacity: 0.1}).addTo(mymap); 
+        var iss = L.marker([0, 0], { icon: ISSIcon }).addTo(mymap);
+        var isscirc = L.circle([0, 0], 800e3, { color: "#c22", opacity: 0.3, weight: 1, fillColor: "#c22", fillOpacity: 0.1 }).addTo(mymap);
 
         moveISS();
 
     };
 
     // Function to get the times when the ISS will pass by a certain location by latitude/longitude.
-    function getPassby(){
+    function getPassby() {
         // var lat = "";
         var lat = "45.0";
         // var lon = "";
         var lon = "122.3";
 
-        $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat +'&lon=' + lon + '&callback=?', function(data) {
+        $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
             data['response'].forEach(function (d) {
-                var date = new Date(d['risetime']*1000);
+                var date = new Date(d['risetime'] * 1000);
                 $('#isspass').append('<li>' + date.toString() + '</li>');
                 console.log("Passby");
                 console.log(date)
@@ -64,18 +64,26 @@ $(document).ready(function () {
     }
 
     // Function to get the list of people who are currently in space and which craft they are on.
-    function getPeople(){
-        $.getJSON('http://api.open-notify.org/astros.json', function(data) {
+    function getPeople() {
+        $.getJSON('http://api.open-notify.org/astros.json', function (data) {
             console.log(data.number);
             console.log(data)
         });
 
     }
 
+    //function for weather
+    //call back function
+    $("#searchBtn").click(function () {
+        var cityLocation = $("formInput").val();
+        console.log(cityLocation);
+        cityForecast(cityLocation);
 
-getISSLocation();
-getPassby();
-getPeople();
+    });
+
+    getISSLocation();
+    getPassby();
+    getPeople();
 });
 
 
