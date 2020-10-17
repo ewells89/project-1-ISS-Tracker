@@ -1,6 +1,7 @@
 $(document).ready(function () {
     // console.log("Hello");
 
+    // Function to get the current location of the ISS by lattitude/longitude.
     function getISSLocation(){
         var mymap = L.map('mapid').setView([0,0], 2);
         
@@ -16,6 +17,7 @@ $(document).ready(function () {
             setTimeout(moveISS, 5000); 
         }
 
+        // Leaflet map 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -25,6 +27,7 @@ $(document).ready(function () {
             accessToken: 'pk.eyJ1IjoiZXdlbGxzODkiLCJhIjoiY2tnY3p6b2pjMDhxODJzcGV1MTlwbHNnayJ9.8c10WiHSmEVy8wf4CbjNjw'
         }).addTo(mymap);
 
+        // Icon to display the ISS position on the leaflet map
         var ISSIcon = L.icon({
             iconUrl: './assets/ISSIcon.png',
             iconSize: [50, 30],
@@ -43,12 +46,12 @@ $(document).ready(function () {
 
     };
 
-
+    // Function to get the times when the ISS will pass by a certain location by latitude/longitude.
     function getPassby(){
-        var lat = "";
-        // var lat = "45.0";
-        var lon = "";
-        // var lon = "122.3";
+        // var lat = "";
+        var lat = "45.0";
+        // var lon = "";
+        var lon = "122.3";
 
         $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat +'&lon=' + lon + '&callback=?', function(data) {
             data['response'].forEach(function (d) {
@@ -60,9 +63,19 @@ $(document).ready(function () {
         });
     }
 
+    // Function to get the list of people who are currently in space and which craft they are on.
+    function getPeople(){
+        $.getJSON('http://api.open-notify.org/astros.json', function(data) {
+            console.log(data.number);
+            console.log(data)
+        });
+
+    }
+
 
 getISSLocation();
 getPassby();
+getPeople();
 });
 
 
