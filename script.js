@@ -87,6 +87,16 @@ $(document).ready(function () {
             console.log(queryURL)
 
             //ajax call
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+
+                    var tempF = Math.round((response.main.temp - 273.15) * 1.8 + 32);
+                }
+            })
 
 
         }
