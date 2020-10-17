@@ -44,7 +44,25 @@ $(document).ready(function () {
     };
 
 
-getISSLocation();
+    function getPassby(){
+        var lat = "";
+        // var lat = "45.0";
+        var lon = "";
+        // var lon = "122.3";
 
+        $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat +'&lon=' + lon + '&callback=?', function(data) {
+            data['response'].forEach(function (d) {
+                var date = new Date(d['risetime']*1000);
+                $('#isspass').append('<li>' + date.toString() + '</li>');
+                console.log("Passby");
+                console.log(date)
+            });
+        });
+    }
+
+
+getISSLocation();
+getPassby();
 });
+
 
