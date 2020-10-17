@@ -1,4 +1,16 @@
+body {
+    background-color:#5e646b
+    /* #222529 */
+    ;
+}
+
 h1 {
     color:red;
     font-weight:bold;
 }
+
+
+#mapid {
+    height: 400px;
+    width: 600px; 
+    margin:auto;}
