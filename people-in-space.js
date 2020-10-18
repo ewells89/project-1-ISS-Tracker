@@ -6,9 +6,16 @@ $(document).ready(function () {
             console.log(data.number);
             console.log(data)
 
+            var peopleInSpace = 
+
+            
+
+            //declare varibale array output from the getPeople()
+
 
             function getWiki(){
-                var queryURL = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Craig%20Noone&format=json"
+                var queryURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?format=json&action=query&list=search&srsearch="
+                //action=query&list=search&srsearch=Craig%20Noone&format=json"
     
                 $.ajax({
                     url: queryURL,
