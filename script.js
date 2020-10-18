@@ -46,22 +46,62 @@ $(document).ready(function () {
 
     };
 
-    // Function to get the times when the ISS will pass by a certain location by latitude/longitude.
-    function getPassby() {
-        // var lat = "";
-        var lat = "45.0";
-        // var lon = "";
-        var lon = "122.3";
+   
+    $("#searchBtn").on("click",function(event){
+        event.preventDefault();
 
-        $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
-            data['response'].forEach(function (d) {
-                var date = new Date(d['risetime'] * 1000);
-                $('#isspass').append('<li>' + date.toString() + '</li>');
-                console.log("Passby");
-                console.log(date)
-            });
-        });
-    }
+        var postalCode = "30328"//$("zipCode").val();
+        // var city = $("city").val();
+        // var state = $("state").val();
+        var geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode 
+        // + '&city=' + city + '&state=' + state;
+
+            $.ajax({
+                url: geocodeURL,
+                method: "GET"
+            }).then(function(response) {
+                console.log("geocode response");
+                console.log(response)
+            
+                var lat = response.results[0].locations[0].latLng.lat;
+                var lon = response.results[0].locations[0].latLng.lng;
+                console.log(lat);
+                console.log(lon);
+                getPassby();
+
+                function getPassby(){
+                    $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
+                        data['response'].forEach(function (d) {
+                            var date = new Date(d['risetime'] * 1000);
+                            $('#isspass').append('<li>' + date.toString() + '</li>');
+                            console.log("Passby");
+                            console.log(date)
+                        });
+                    });
+
+                }
+            })
+
+        
+
+    })
+   
+    // Function to get the times when the ISS will pass by a certain location by latitude/longitude.
+    // function getPassby() {
+    //     // var lat = "";
+    //     var lat = "45.0";
+    //     // var lon = "";
+    //     var lon = "122.3";
+
+    //     $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
+    //         data['response'].forEach(function (d) {
+    //             var date = new Date(d['risetime'] * 1000);
+    //             $('#isspass').append('<li>' + date.toString() + '</li>');
+    //             console.log("Passby");
+    //             console.log(date)
+    //         });
+    //     });
+    // }
 
     // Function to get the list of people who are currently in space and which craft they are on.
     function getPeople() {
