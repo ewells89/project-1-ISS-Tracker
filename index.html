@@ -19,16 +19,42 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- navigation tool bar -->
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Current Position</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">People in Space</a> 
+      </li>
+    </ul>
+
     <section>
       <div class="row">
         <div class="col-sm-3"></div>
+
         <div class="col-sm-6 text-center vertical-align-center">
             <h1>Hello World.</h1>
             <div id="mapid"></div>
         </div>
+        
         <div class="col-sm-3"></div>
       </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 vertical-align-center">
+          <form>
+            <div class="form-group row">
+              <input class="form-control" id="formInput" type="text" placeholder="Search City or Zip Code">
+              <button type="button" class="btn btn-primary" id="searchBtn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="Wiki.js" async defer></script>
     <script src="script.js" async defer></script>
