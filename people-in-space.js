@@ -6,6 +6,9 @@ $(document).ready(function () {
             console.log(data.number);
             console.log(data)
 
+            var peopleInSpace = data.people;
+            console.log("Response Array");
+            console.log(peopleInSpace);
 
             function getWiki(){
                 var queryURL = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Craig%20Noone&format=json"
