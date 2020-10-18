@@ -1,16 +1,49 @@
 body {
-    background-color:#5e646b
+    background-color:black
     /* #222529 */
     ;
 }
 
-h1 {
-    color:red;
-    font-weight:bold;
+h1, h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:dodgerblue;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
+
+ .ul {
+    display: inline-block;
+} 
 
 
 #mapid {
     height: 400px;
     width: 600px; 
-    margin:auto;}
+    margin:auto;
+
+}
+
+.form {
+     margin-top: 75px; 
+     margin-bottom: 100px; 
+}
+
+.input-group-append {
+    display: inline-block;
+}
+
+#searchBtn{
+    float: left;
+    margin: 0px;
+}
+
+.row{
+    margin-bottom: 50px;
+
+}
+
+
+#weatherCard {
+    width: 40rem;
+}
