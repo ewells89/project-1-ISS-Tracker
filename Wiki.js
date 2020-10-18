@@ -1,11 +1,17 @@
 $(document).ready(function () {
     //console.log(hello)
+    //variables
+    var searchBar = document.getElementById('searchBar');
+    var searchBtn = document.getElementById('searchBtn');
+    var query = searchBar.value;
     var api = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch"
-    var searchbtn = $("search-btn")
-    var input = $("search-input")
+
+    //functions
+    
+
   
     $.ajax({
-       apikey: api,
+       apikey: "api",
        method: "GET",
        datatype: "json"
    }).then(function(response) {
