@@ -101,6 +101,12 @@ $(document).ready(function () {
                     console.log(response);
 
                     var tempF = Math.round((response.main.temp - 273.15) * 1.8 + 32);
+                    $("#currentTemp").text("Temp: " + tempF + " F");
+                    $("#currentHumid").text("Humidity: " + response.main.humidity + " %");
+                    $("#currentWind").text("Wind: " + response.wind.speed + " MPH");
+
+                    var lat = response.coord.lat;
+                    var lon = response.coord.lon;
                 }
             })
 
