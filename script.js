@@ -46,44 +46,50 @@ $(document).ready(function () {
 
     };
 
-    // Function to get the times when the ISS will pass by a certain location by latitude/longitude.
-    function getPassby() {
-        // var lat = "";
-        var lat = "45.0";
-        // var lon = "";
-        var lon = "122.3";
 
-        $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
-            data['response'].forEach(function (d) {
-                var date = new Date(d['risetime'] * 1000);
-                $('#isspass').append('<li>' + date.toString() + '</li>');
-                console.log("Passby");
-                console.log(date)
-            });
-        });
-    }
+    $("#searchBtn").on("click", function (event) {
+        event.preventDefault();
 
-    // Function to get the list of people who are currently in space and which craft they are on.
-    function getPeople() {
-        $.getJSON('http://api.open-notify.org/astros.json', function (data) {
-            console.log(data.number);
-            console.log(data)
-        });
+        var postalCode = "30328"//$("zipCode").val();
+        // var city = $("city").val();
+        // var state = $("state").val();
+        var geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
+        // + '&city=' + city + '&state=' + state;
 
-    }
+        $.ajax({
+            url: geocodeURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log("geocode response");
+            console.log(response)
 
-    //function for weather
-    //call back function
-    $("#searchBtn").click(function () {
-        var cityLocation = $("formInput").val();
-        console.log(cityLocation);
-        cityForecast(cityLocation);
+            var lat = response.results[0].locations[0].latLng.lat;
+            var lon = response.results[0].locations[0].latLng.lng;
+            console.log(lat);
+            console.log(lon);
+            getPassby();
+
+            function getPassby() {
+                $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
+                    data['response'].forEach(function (d) {
+                        var date = new Date(d['risetime'] * 1000);
+                        $('#isspass').append('<li>' + date.toString() + '</li>');
+                        console.log("Passby");
+                        console.log(date)
+                    });
+                });
+
+            }
+        })
+        //function for weather
+        //call back function
+        cityForecast();
 
         //weather function 
-        function cityForecast(cityLocationValue) {
+        function cityForecast() {
             var apiKey = "63de61e390b4a0f5e75ff9df058d248b";
             var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-                cityLocationValue + "&appid=" + apiKey;
+                postalCode + "&appid=" + apiKey;
             console.log(queryURL)
 
             //ajax call
@@ -100,10 +106,20 @@ $(document).ready(function () {
 
 
         }
-    });
+
+
+    })
+
+    // Function to get the list of people who are currently in space and which craft they are on.
+    function getPeople() {
+        $.getJSON('http://api.open-notify.org/astros.json', function (data) {
+            console.log(data.number);
+            console.log(data)
+        });
+
+    }
 
     getISSLocation();
-    getPassby();
     getPeople();
 });
 
