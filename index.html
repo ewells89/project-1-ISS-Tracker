@@ -61,7 +61,7 @@
         <div class="text-center"><h4>When will the ISS come by you</h4></div>
           <form>
             <div class="form">
-              <input class="form-control" id="formInput" type="text" placeholder="Search City or Zip Code">
+              <input class="form-control" id="postalCode" type="text" placeholder="Search Zip Code">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button" id="searchBtn">
                     <i class="fas fa-search"></i>    
@@ -71,10 +71,40 @@
           </form>
         </div>
       </div>
+      <!--Boxes for current and future ISS Location and weather-->
       <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6 text-center ">
-          <div class="card vertical-align-center">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+          <div class="row wx-box rounded">
+            <div class="col-sm-5">
+              <p>ISS Current Location:</p>
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4" id="weatherCard" >
+              <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-body text-primary">
+                  <p class="card-text">Current Weather: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row wx-box rounded">
+            <div class="col-sm-5">
+              <p>ISS Future Location:</p>
+            </div>
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4" id="weatherCard" >
+              <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-body text-primary">
+                  <p class="card-text">Current Weather: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--This is old code. not sure if we need anything from it<div class="card vertical-align-center">
             <div class="card-body">
               <h5 class="card-title">Weather Detail</h5>
               <form>
@@ -89,11 +119,12 @@
               </form>
        
             </div>
-          </div>
-            <div id="mapid"></div>
+          </div>-->
+            <!--<div id="mapid"></div>-->
         </div>
-        <div class="col-sm-3"></div>
-      <div class="form-group">
+        <div class="col-sm-3">
+        </div>
+      </div>
     </section>
 
 

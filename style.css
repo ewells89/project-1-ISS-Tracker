@@ -45,5 +45,11 @@ h1, h4 {
 
 
 #weatherCard {
-    width: 40rem;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-right: 30px;
 }
+
+.wx-box {
+    background-color: rgb(219, 219, 219);
+  }
