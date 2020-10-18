@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function () {
 
     // Function to get the list of people who are currently in space and which craft they are on.
@@ -11,5 +12,17 @@ $(document).ready(function () {
     }
 
     getPeople();
+=======
+$(document).ready(function() {
+//console.log("hello")
+ var queryURL = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Craig%20Noone&format=json"
+
+$.ajax({
+    url: queryURL,
+    method: "GET",
+}).then(function(response) {
+
+});
+>>>>>>> 7780b7557165e5991589be42d4dc8730026e93a3
 
 });
