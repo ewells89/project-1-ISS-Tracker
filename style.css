@@ -1,25 +1,12 @@
-/* background image */
 body {
-    background-image: url("./assets/astronaut3.jpg");
-    background-size: cover;
-    background-attachment: scroll;
-
-}
-/* navbar link to homepage style */
-.navbar-brand {
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-    background-color: lightslategray
+    background-color:black
+    /* #222529 */
+    ;
 }
 
 h1, h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:lightblue;
+    color:dodgerblue;
     font-weight: bold;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -34,7 +21,6 @@ h1, h4 {
     height: 400px;
     width: 600px; 
     margin:auto;
-    border: 5px solid lightgrey
 
 }
 
