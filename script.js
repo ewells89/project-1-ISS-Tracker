@@ -46,36 +46,55 @@ $(document).ready(function () {
 
     };
 
-
+    // Click event for user to enter the location to get pass by times and weather information
     $("#searchBtn").on("click", function (event) {
         event.preventDefault();
 
-        var postalCode = "30328"//$("zipCode").val();
-        // var city = $("city").val();
-        // var state = $("state").val();
+        var postalCode = $("#postalCode").val();
         var geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
         // + '&city=' + city + '&state=' + state;
 
+        // AJAX Call to get passby times and to append these to the DOM
         $.ajax({
             url: geocodeURL,
             method: "GET"
         }).then(function (response) {
-            console.log("geocode response");
-            console.log(response)
+            // console.log("geocode response");
+            // console.log(response)
 
             var lat = response.results[0].locations[0].latLng.lat;
             var lon = response.results[0].locations[0].latLng.lng;
-            console.log(lat);
-            console.log(lon);
+            var area = (response.results[0].locations[0].adminArea5 + ", " + response.results[0].locations[0].adminArea3)
+            // console.log(lat);
+            // console.log(lon);
+            console.log(area);
             getPassby();
 
+            // Function to get pass by times by location entered on the click event
             function getPassby() {
                 $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
+                    $('#passCard').empty();
+                    var cardHolder = $("<div>");
+                    cardHolder.attr({
+                        "class":"card",
+                        "style":"width:18rem", 
+                        "style":"background-color:#dbdbdb",
+                    });
+                    $('#passCard').append(cardHolder);
+                    
+                    var card = $("<div>");
+                    card.attr({
+                        "class":"card-body",
+                    });
+
+                    $(cardHolder).append(card);
+                    $(card).append('<h5>' + "Next 5 ISS passby times for " + area + ":" + '</h5>');
                     data['response'].forEach(function (d) {
                         var date = new Date(d['risetime'] * 1000);
-                        $('#isspass').append('<li>' + date.toString() + '</li>');
-                        console.log("Passby");
-                        console.log(date)
+                        $(card).append('<li>' + date.toString() + '</li>');
+                        // console.log("Passby");
+                        // console.log(date)
+                        console.log(data);
                     });
                 });
 
@@ -128,3 +147,5 @@ $(document).ready(function () {
 });
 
 
+var date = Date(1603188612);
+console.log(date);
