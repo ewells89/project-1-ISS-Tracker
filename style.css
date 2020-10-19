@@ -1,5 +1,5 @@
 body {
-    background-color:black
+    background-image: url("astronomy.png");
     /* #222529 */
     ;
 }
@@ -21,6 +21,7 @@ h1, h4 {
     height: 400px;
     width: 600px; 
     margin:auto;
+    border: 5px solid dodgerblue
 
 }
 
