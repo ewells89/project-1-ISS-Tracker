@@ -2,7 +2,7 @@
 body {
     background-image: url("./assets/astronaut3.jpg");
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
 
 }
 /* navbar link to homepage style */

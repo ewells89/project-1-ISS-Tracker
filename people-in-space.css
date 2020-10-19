@@ -4,9 +4,9 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
-.card{
+.col-sm-6{
     width: 540px;
     height: 300px;
-    margin: auto;
+    margin-top: auto;
     padding-top: 100px;
 }
