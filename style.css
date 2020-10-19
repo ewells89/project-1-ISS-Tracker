@@ -2,9 +2,10 @@
 body {
     background-image: url("./assets/astronaut3.jpg");
     background-size: cover;
-    background-attachment: 
+    background-attachment: fixed;
 
 }
+/* navbar link to homepage style */
 .navbar-brand {
     display: inline-block;
     padding-top: .3125rem;
@@ -33,7 +34,7 @@ h1, h4 {
     height: 400px;
     width: 600px; 
     margin:auto;
-    border: 5px solid bisque
+    border: 5px solid lightgrey
 
 }
 
