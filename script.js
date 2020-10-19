@@ -64,34 +64,37 @@ $(document).ready(function () {
 
             var lat = response.results[0].locations[0].latLng.lat;
             var lon = response.results[0].locations[0].latLng.lng;
+            var area = (response.results[0].locations[0].adminArea5 + ", " + response.results[0].locations[0].adminArea3)
             // console.log(lat);
             // console.log(lon);
+            console.log(area);
             getPassby();
 
             // Function to get pass by times by location entered on the click event
             function getPassby() {
                 $.getJSON('http://api.open-notify.org/iss-pass.json?' + 'lat=' + lat + '&lon=' + lon + '&callback=?', function (data) {
+                    $('#passCard').empty();
+                    var cardHolder = $("<div>");
+                    cardHolder.attr({
+                        "class":"card",
+                        "style":"width:18rem", 
+                        "style":"background-color:#dbdbdb",
+                    });
+                    $('#passCard').append(cardHolder);
+                    
+                    var card = $("<div>");
+                    card.attr({
+                        "class":"card-body",
+                    });
+
+                    $(cardHolder).append(card);
+                    $(card).append('<h5>' + "Next 5 ISS passby times for " + area + ":" + '</h5>');
                     data['response'].forEach(function (d) {
                         var date = new Date(d['risetime'] * 1000);
-                        $('#isspass').append('<li>' + date.toString() + '</li>');
+                        $(card).append('<li>' + date.toString() + '</li>');
                         // console.log("Passby");
                         // console.log(date)
                         console.log(data);
-
-                        var passTimes = data.response
-
-                        // FOR LOOP to iterate through the passtime response and append to the DOM
-                        for (var i=0; i<passTimes.length;i++){
-                            var passTime = $("<li>").text(Date(data.response.risetime));
-                            console.log(passTime);
-                            $("#passCard").append(passTime);
-
-
-
-                        }
-
-
-
                     });
                 });
 
