@@ -1,25 +1,13 @@
-/* background image */
 body {
-    background-image: url("./assets/astronaut3.jpg");
+    background-image: url("./assets/milkyway.jpg");
     background-size: cover;
-    background-attachment: scroll;
-
-}
-/* navbar link to homepage style */
-.navbar-brand {
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-    background-color: lightslategray
+    background-attachment: fixed;
+    
 }
 
 h1, h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:lightblue;
+    color: teal;
     font-weight: bold;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -29,12 +17,22 @@ h1, h4 {
     display: inline-block;
 } */
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    background-color: teal
+}
 
 #mapid {
     height: 400px;
     width: 600px; 
     margin:auto;
-    border: 5px solid lightgrey
+    border: 10px solid teal 
 
 }
 
