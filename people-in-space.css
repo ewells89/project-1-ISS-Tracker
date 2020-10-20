@@ -1,6 +1,6 @@
 /* background added  */
 body {
-    background-image: url("./assets/astronaut.jpg");
+    background-image: url("./assets/ocean.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
@@ -10,3 +10,17 @@ body {
     margin-top: auto;
     padding-top: 100px;
 }
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    background-color: teal;
+
+}
+
+    
