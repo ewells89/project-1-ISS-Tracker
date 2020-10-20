@@ -1,0 +1,38 @@
+body {
+background-image: url("./assets/ocean.jpg");
+background-size: cover;
+background-attachment: fixed;
+
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    background-color: teal;
+
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: teal;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.card{
+    margin-top: 50px;
+    float: center;
+    border: 10px solid teal;
+    background-color:#dbdbdb;
+    
+    
+}.card
+
+   
+    
