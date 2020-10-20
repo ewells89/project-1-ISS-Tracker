@@ -64,3 +64,21 @@ h1, h4 {
 .wx-box {
     background-color: rgb(219, 219, 219);
   }
+
+
+
+  .cardWeather{ 
+    font-size: 20px;
+    padding:10px;
+ 
+    
+  }
+
+  .cardDiv {
+      display:inline-block;
+      margin:25px;
+      background-color:darkcyan;
+      color:white;
+      width: 300px;
+      
+  }
