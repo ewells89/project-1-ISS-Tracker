@@ -51,7 +51,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var postalCode = $("#postalCode").val();
-        var geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
+        var geocodeURL = 'https://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
         // + '&city=' + city + '&state=' + state;
 
         // AJAX Call to get passby times and to append these to the DOM
@@ -88,7 +88,7 @@ $(document).ready(function () {
                     });
 
                     $(cardHolder).append(card);
-                    $(card).append('<h5>' + "Next 5 ISS passby times for " + area + ":" + '</h5>');
+                    $(card).append('<h5>' + "Next 5 ISS passby times for your area:" + '</h5>');
                     data['response'].forEach(function (d) {
                         var date = new Date(d['risetime'] * 1000);
                         $(card).append('<li>' + date.toString() + '</li>');
