@@ -51,7 +51,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var postalCode = $("#postalCode").val();
-        var geocodeURL = 'http://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
+        var geocodeURL = 'https://open.mapquestapi.com/geocoding/v1/address?key=CRg7ye19CBAPnrjmea0n5OjRpXHiXHYG' + '&postalCode=' + postalCode
         // + '&city=' + city + '&state=' + state;
 
         // AJAX Call to get passby times and to append these to the DOM
@@ -67,7 +67,7 @@ $(document).ready(function () {
             var area = (response.results[0].locations[0].adminArea5 + ", " + response.results[0].locations[0].adminArea3)
             // console.log(lat);
             // console.log(lon);
-            console.log(area);
+            // console.log(area);
             getPassby();
 
             // Function to get pass by times by location entered on the click event
@@ -76,37 +76,40 @@ $(document).ready(function () {
                     $('#passCard').empty();
                     var cardHolder = $("<div>");
                     cardHolder.attr({
-                        "class":"card",
-                        "style":"width:18rem", 
-                        "style":"background-color:#dbdbdb",
+                        "class": "card",
+                        "style": "width:18rem",
+                        "style": "background-color:#dbdbdb",
                     });
                     $('#passCard').append(cardHolder);
-                    
+
                     var card = $("<div>");
                     card.attr({
-                        "class":"card-body",
+                        "class": "card-body",
                     });
 
                     $(cardHolder).append(card);
-                    $(card).append('<h5>' + "Next 5 ISS passby times for " + area + ":" + '</h5>');
+                    $(card).append('<h5>' + "Next 5 ISS passby times for your area:" + '</h5>');
                     data['response'].forEach(function (d) {
                         var date = new Date(d['risetime'] * 1000);
                         $(card).append('<li>' + date.toString() + '</li>');
                         // console.log("Passby");
                         // console.log(date)
-                        console.log(data);
+                        // console.log(data);
+
+
                     });
                 });
 
             }
         })
-        //function for weather
-        //call back function
+
         cityForecast();
-        //weather function 
+
+
         function cityForecast() {
+
             var apiKey = "63de61e390b4a0f5e75ff9df058d248b";
-            var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
+            var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" +
                 postalCode + "&appid=" + apiKey;
             console.log(queryURL)
 
@@ -117,27 +120,67 @@ $(document).ready(function () {
                 dataType: "json",
                 success: function (response) {
                     console.log(response);
+                    const responseArray = response.list
+                    // console.log(responseArray);
+                    var location = response.city.name
+                    console.log(location);
+                    $('#weatherCard').empty();
+                    var cardHold = $("<div>");
+                    cardHold.attr({
+                        "class": "cardWeather",
+                        "style": "background-color:#dbdbdb",
+                    },
+                        // {"<h5>":location,}
+                    );
 
-                    var wxIcon = response.weather[0].icon;
-                    var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + wxIcon + "@2x.png");
-                    var tempF = Math.round((response.main.temp - 273.15) * 1.8 + 32);
+                    $(cardHold).append("<h5>" + "Weather Forecast for " + location + "</h5>")
+                    $('#weatherCard').append(cardHold);
 
-                    $("#currentName").text(response.name);
-                    $("#currentName").append(icon);
-                    $("#currentTemp").text("Temp: " + tempF + " F");
-                    $("#currentHumid").text("Humidity: " + response.main.humidity + " %");
-                    $("#currentWind").text("Wind: " + response.wind.speed + " MPH");
+                    for (var i = 0; i < 5; i++) {
+
+                        var wxIcon = response.list[i].weather[0].icon;
+                        // console.log(wxIcon);
+                        var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + wxIcon + "@2x.png");
+                        var tempF = Math.round((response.list[i].main.temp - 273.15) * 1.8 + 32) + "F";
+                        // console.log(tempF);
+                        var humidity = response.list[i].main.humidity + "%";
+                        // console.log(humidity);
+                        var wind = response.list[i].wind.speed + " mph";
+                        // console.log(wind);
+
+                        var cardDiv = $("<div>");
+                        cardDiv.attr("class", "cardDiv")
+
+                        var cardDivIcon = $("<div>")
+                        cardDivIcon.attr("class", "cardWeather",)
+                        cardDivIcon.append(icon);
+                        $(cardDiv).append(cardDivIcon);
+
+                        var cardDivTemp = $("<div>")
+                        cardDivTemp.attr("class", "cardWeather")
+                        cardDivTemp.append("Temperature: " + tempF);
+                        $(cardDiv).append(cardDivTemp);
+
+                        var cardDivHumidity = $("<div>")
+                        cardDivHumidity.attr("class", "cardWeather",)
+                        cardDivHumidity.append("Humidity: " + humidity);
+                        $(cardDiv).append(cardDivHumidity);
+
+                        var cardDivWind = $("<div>")
+                        cardDivWind.attr("class", "cardWeather",)
+                        cardDivWind.append("Wind Speed: " + wind);
+                        $(cardDiv).append(cardDivWind);
+
+                        $(cardHold).append(cardDiv);
 
 
-                    var lat = response.coord.lat;
-                    var lon = response.coord.lon;
+                    };
 
                 }
             })
 
 
-        }
-
+        };
 
     })
 
@@ -145,7 +188,3 @@ $(document).ready(function () {
     getISSLocation();
 
 });
-
-
-var date = Date(1603188612);
-console.log(date);
