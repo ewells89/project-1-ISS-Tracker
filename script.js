@@ -76,15 +76,15 @@ $(document).ready(function () {
                     $('#passCard').empty();
                     var cardHolder = $("<div>");
                     cardHolder.attr({
-                        "class":"card",
-                        "style":"width:18rem", 
-                        "style":"background-color:#dbdbdb",
+                        "class": "card",
+                        "style": "width:18rem",
+                        "style": "background-color:#dbdbdb",
                     });
                     $('#passCard').append(cardHolder);
-                    
+
                     var card = $("<div>");
                     card.attr({
-                        "class":"card-body",
+                        "class": "card-body",
                     });
 
                     $(cardHolder).append(card);
@@ -95,14 +95,79 @@ $(document).ready(function () {
                         // console.log("Passby");
                         // console.log(date)
                         console.log(data);
+
+                        cityForecast(); 663
+
+                        console.log("I work ")
+                        //weather function 
+
+
                     });
                 });
 
             }
         })
+        function cityForecast() {
+            // $('#weatherCard').empty();
+            // var cardHold = $("<div>");
+            // cardHold.attr({
+            //     "class": "card",
+            //     "style": "width:18rem",
+            //     "style": "background-color:#dbdbdb",
+            // });
+            // $('#weatherCard').append(cardHold);
+
+            // var cardDiv = $("<div>");
+            // cardDiv.attr({
+            //     "class": "card-body",
+            // });
+
+            // $(cardHold).append(cardDiv);
+            // $(cardDiv).append('<h5>' + "Weather" + area + ":" + '</h5>');
+            var apiKey = "63de61e390b4a0f5e75ff9df058d248b";
+            var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" +
+                postalCode + "&appid=" + apiKey;
+            console.log(queryURL)
+
+            //ajax call
+            $.ajax({
+                url: queryURL,
+                method: "GET",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+                    const responseArray = response.list
+                    for (var i = 0; i < responseArray[i].length; i++) {
+                        console.log(responseArray);
+                        console.log(responseArray[i].main.temp + "i am here")
+
+                        var wxIcon = response.weather[0].icon;
+                        var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + wxIcon + "@2x.png");
+                        var tempF = Math.round((response.main.temp - 273.15) * 1.8 + 32);
+
+                        $("#weatherCard").text(response.name);
+                        $("#weatherCard").append(icon);
+                        $("#weatherCard").text("Temp: " + tempF + " F");
+                        $("#weatherCard").text("Humidity: " + response.main.humidity + " %");
+                        $("#weatherCard").text("Wind: " + response.wind.speed + " MPH");
+
+
+                        var lat = response.coord.lat;
+                        var lon = response.coord.lon;
+
+                        //list.main.temp
+                        //list.wind.speed
+
+                    };
+
+                }
+            })
+
+
+        };
         //function for weather
         //call back function
-        cityForecast();
+        /*cityForecast();
         //weather function 
         function cityForecast() {
             var apiKey = "63de61e390b4a0f5e75ff9df058d248b";
@@ -136,7 +201,7 @@ $(document).ready(function () {
             })
 
 
-        }
+        }*/
 
 
     })
