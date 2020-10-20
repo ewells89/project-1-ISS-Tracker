@@ -1,13 +1,7 @@
 body {
-<<<<<<< HEAD
-    background-image: url("./assets/ocean.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-=======
     background-color:black
     /* #222529 */
     ;
->>>>>>> b769edb23c8ccc49bab2f49cdcbaffbda4713945
 }
 .card{
     width: 540px;
@@ -17,17 +11,3 @@ body {
     margin-top: 90px;
 }
 }
-
-.navbar-brand {
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-    background-color: teal;
-
-}
-
-    
