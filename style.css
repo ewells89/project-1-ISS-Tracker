@@ -1,12 +1,13 @@
 body {
-    background-color:black
-    /* #222529 */
-    ;
+
+    background-image: url("./assets/ocean.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1, h4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:dodgerblue;
+    color: teal;
     font-weight: bold;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -16,12 +17,22 @@ h1, h4 {
     display: inline-block;
 } */
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    background-color: teal
+}
 
 #mapid {
     height: 400px;
     width: 600px; 
     margin:auto;
-
+    border: 10px solid teal 
 }
 
 .form {
@@ -52,4 +63,22 @@ h1, h4 {
 
 .wx-box {
     background-color: rgb(219, 219, 219);
+  }
+
+
+
+  .cardWeather{ 
+    font-size: 20px;
+    padding:10px;
+ 
+    
+  }
+
+  .cardDiv {
+      display:inline-block;
+      margin:25px;
+      background-color:darkcyan;
+      color:white;
+      width: 300px;
+      
   }
