@@ -5,9 +5,9 @@ body {
 }
 .card{
     width: 540px;
-    height: 300px;
+    
     margin: auto;
-    padding-top: 100px;
-    margin-top: 90px;
+    padding: 30px;
+    margin-top: 45px;
 }
-}
+
