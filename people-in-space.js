@@ -35,7 +35,7 @@ $(document).ready(function () {
                         var pageID = response.query.search[0].pageid
                         
                         
-                        $('#card-body').empty();
+                        
                         var cardHolder = $("<div>");
                         cardHolder.attr({
                             "class":"card",
@@ -47,8 +47,8 @@ $(document).ready(function () {
                       
         
                       
-                        $(cardHolder).append('<h5>' + person + '</h5>');
-                       $(cardHolder).append(snippet)
+                       
+                       $(cardHolder).append(snippet +"...")
                         $('#card-body').append(cardHolder);
         
         
