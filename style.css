@@ -38,7 +38,7 @@ h1, h4 {
 /* .form { */
     /* margin-top: 75px; */
     /* margin-bottom: 100px; */
-}
+/* } */
 
 .input-group-append {
     display: inline-block;
@@ -63,22 +63,6 @@ h1, h4 {
 
 .wx-box {
     background-color: rgb(219, 219, 219);
-  }
+    border: 10px solid teal 
 
-
-
-  .cardWeather{ 
-    font-size: 20px;
-    padding:10px;
- 
-    
-  }
-
-  .cardDiv {
-      display:inline-block;
-      margin:25px;
-      background-color:darkcyan;
-      color:white;
-      width: 300px;
-      
   }
