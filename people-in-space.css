@@ -1,3 +1,4 @@
+  
 body {
 
     background-image: url("./assets/earth.jpg");
@@ -6,43 +7,11 @@ body {
 }
 .card{
     width: 540px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    height: 300px;
-    margin-top: 100px;
-    padding-top: 100px;
-    line-height: 100px;
-    border: 10px solid teal;
-    border-radius: 0px;
-}
-.card-body{
-    /* line-height: 150px; */
-    margin-top: 90px;
-}
-#img{
-    margin-top: 50px;
-    height:150px;
-    width: 150px;
-}
-#astronaut-name{
-    vertical-align: top;
-}
-#astronaut-description{
-    margin-top: 50px;
-    overflow: auto;
-}
-=======
-    
-=======
->>>>>>> 08ea8d2583d1ed5b5a8e57e7f5198512bf7e3326
     margin: auto;
     padding: 30px;
     margin-top: 45px;
 }
 
-<<<<<<< HEAD
->>>>>>> 0d38010736656039bf681e916318e82fa28bd524
-=======
 .navbar-brand {
     display: inline-block;
     padding-top: .3125rem;
@@ -56,11 +25,4 @@ body {
 /* This is the font for the bio for crewmates */
 p{
     font-style: italic;
-<<<<<<< HEAD
-
 }
-=======
-    
-}
->>>>>>> 08ea8d2583d1ed5b5a8e57e7f5198512bf7e3326
->>>>>>> 0145cc393121ce671cda0a88ab88ba252e04c674
