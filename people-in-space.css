@@ -1,10 +1,6 @@
 body {
 
-<<<<<<< HEAD
-    background-image: url("./assets/ocean.jpg");
-=======
     background-image: url("./assets/earth.jpg");
->>>>>>> 08ea8d2583d1ed5b5a8e57e7f5198512bf7e3326
     background-size: cover;
     background-attachment: fixed;
 }
