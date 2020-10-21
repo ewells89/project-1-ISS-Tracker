@@ -137,7 +137,7 @@ $(document).ready(function () {
                     $('#weatherCard').append(cardHold);
 
                     for (var i = 0; i < 5; i++) {
-
+                        var dateWx = response.list[i].dt_txt;
                         var wxIcon = response.list[i].weather[0].icon;
                         // console.log(wxIcon);
                         var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + wxIcon + "@2x.png");
@@ -150,6 +150,11 @@ $(document).ready(function () {
 
                         var cardDiv = $("<div>");
                         cardDiv.attr("class", "cardDiv")
+
+                        var cardDivDate = $("<p>")
+                        cardDivDate.attr("class", "cardWeather",)
+                        cardDivDate.append(dateWx);
+                        $(cardDiv).append(cardDivDate);
 
                         var cardDivIcon = $("<div>")
                         cardDivIcon.attr("class", "cardWeather",)
