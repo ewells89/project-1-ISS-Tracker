@@ -6,8 +6,6 @@ body {
 }
 .card{
     width: 540px;
-<<<<<<< HEAD
-<<<<<<< HEAD
     height: 300px;
     margin-top: 100px;
     padding-top: 100px;
@@ -31,18 +29,12 @@ body {
     margin-top: 50px;
     overflow: auto;
 }
-=======
-    
-=======
->>>>>>> 08ea8d2583d1ed5b5a8e57e7f5198512bf7e3326
+
     margin: auto;
     padding: 30px;
     margin-top: 45px;
 }
 
-<<<<<<< HEAD
->>>>>>> 0d38010736656039bf681e916318e82fa28bd524
-=======
 .navbar-brand {
     display: inline-block;
     padding-top: .3125rem;
@@ -58,4 +50,4 @@ p{
     font-style: italic;
     
 }
->>>>>>> 08ea8d2583d1ed5b5a8e57e7f5198512bf7e3326
+
