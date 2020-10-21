@@ -1,0 +1,37 @@
+body {
+background-image: url("./assets/earth.jpg");
+background-size: cover;
+background-attachment: fixed;
+
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    ;
+
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:whitesmoke;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.card{
+    margin-top: 50px;
+    float: center;
+    border: 10px solid lightslategray;
+    background-color:#dbdbdb;
+    
+    
+}
+
+   
+    
