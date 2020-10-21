@@ -1,10 +1,12 @@
 body {
-    background-color:black
-    /* #222529 */
-    ;
+
+    background-image: url("./assets/ocean.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 .card{
     width: 540px;
+<<<<<<< HEAD
     height: 300px;
     margin-top: 100px;
     padding-top: 100px;
@@ -28,3 +30,11 @@ body {
     margin-top: 50px;
     overflow: auto;
 }
+=======
+    
+    margin: auto;
+    padding: 30px;
+    margin-top: 45px;
+}
+
+>>>>>>> 0d38010736656039bf681e916318e82fa28bd524
