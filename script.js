@@ -105,7 +105,7 @@ $(document).ready(function () {
 
         cityForecast();
 
-        //Function to get 3 hr forecast on click event when zip code is entered
+
         function cityForecast() {
 
             var apiKey = "63de61e390b4a0f5e75ff9df058d248b";
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 postalCode + "&appid=" + apiKey;
             console.log(queryURL)
 
-            //Ajax call to get 3 hr weather data and append to the DOM
+            //ajax call
             $.ajax({
                 url: queryURL,
                 method: "GET",
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
                     $(cardHold).append("<h5>" + "Weather Forecast for " + location + "</h5>")
                     $('#weatherCard').append(cardHold);
-                    //For loop used to iterate through the weather API  
+
                     for (var i = 0; i < 5; i++) {
                         var dateWx = response.list[i].dt_txt;
                         var wxIcon = response.list[i].weather[0].icon;
