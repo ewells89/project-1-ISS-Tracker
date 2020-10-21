@@ -30,37 +30,46 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
+
+  
   <body>
     <!-- navigation tool bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="collapse navbar-collapse" id="navbarNav">
         <a class="navbar-brand" href="#">ISSgps</a>
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Current position<span class="sr-only">(current)</span></a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="people-in-space.html">People in space</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="issinfo.html">ISS information</a>
           </li>
+
         </ul>
       </div>
     </nav>
+
+
     <section>
       <div class="row">
         <div class="col-sm-3"></div>
         <div class="col-sm-6 text-center vertical-align-center">
-            <h1></h1>
+          <h1></h1>
           <div id="mapid"></div>
         </div>
         <div class="col-sm-3"></div>
       </div>
+
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4 vertical-align-center">
-        <div class="text-center"><h5>When will the ISS come by you?</h5></div>
+        <div class="text-center"><h4>When will the ISS come by you?</h4></div>
           <form>
             <div class="form d-flex justify-content-center">
               <input class="form-control" id="postalCode" type="text" placeholder="Search Zip Code">
@@ -68,7 +77,7 @@
                 <button class="btn btn-primary" type="button" id="searchBtn">
                     <i class="fas fa-search"></i>    
                 </button>
-            </div>
+              </div>
             </div>
           </form>
         </div>
@@ -78,29 +87,30 @@
       <!-- Leave this box for the ISS PASSBY cards -->
       <div class="row">
         <div class="col-sm-3"></div> 
-        <div class="col-sm-6" id="passCard">
-        </div> 
+        <div class="col-sm-6" id="passCard"></div> 
         <div class="col-sm-3"></div> 
       </div>
       <!-- End of boxes for ISS PASSBY cards -->
 
-  <!-- Leave this box for the Weather cards -->
-  <div class="row">
-      <div class="col-sm-3"></div> 
-      <div class="col-sm-6" id="weatherCard"></div> 
-      <div class="col-sm-3"></div> 
-</div>
-<!-- End of boxes for Weather cards -->
-        </div>
-        <div class="col-sm-3">
-        </div>
+      <!-- Leave this box for the Weather cards -->
+      <div class="row">
+          <div class="col-sm-3"></div> 
+          <div class="col-sm-6" id="weatherCard"></div> 
+          <div class="col-sm-3"></div> 
       </div>
+      <!-- End of boxes for Weather cards -->
+
+      
     </section>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="script.js" async defer></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+
+
   </body>
 </html>
