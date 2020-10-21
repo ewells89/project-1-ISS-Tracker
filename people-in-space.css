@@ -1,13 +1,23 @@
 body {
-    background-color:black
-    /* #222529 */
-    ;
+
+    background-image: url("./assets/earth.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 }
 .card{
     width: 540px;
-    
     margin: auto;
     padding: 30px;
     margin-top: 45px;
 }
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    
+}
