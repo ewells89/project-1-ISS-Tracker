@@ -49,7 +49,9 @@ $(document).ready(function () {
                       
                        
                        $(cardHolder).append(snippet +"...")
-                        $('#card-body').append(cardHolder);
+                       $(cardHolder).append("<p>Read the full article " + "<a href = 'http://en.wikipedia.org/?curid=" + pageID + "'>here</a>.</p>")
+                       $('#card-body').append(cardHolder);
+                       
         
         
                         //$("card-body").append($("<p> + response.data[i].query.search.snippet + </p>"));
